@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,8 +23,8 @@ namespace lab1
         string GenerateReport();
         
     }
-    public delegate void StudentOperation(Student student);
-    public class University : IIdentifiable
+    
+    class University : IIdentifiable
     {
         public string Name { get; set; }
         public List<Faculty> Faculties { get; set; }
@@ -43,7 +43,7 @@ namespace lab1
         }
     }
 
-    public class Faculty : IIdentifiable
+    class Faculty : IIdentifiable
     {
         public string Name { get; set; }
         public University University { get; set; }
@@ -64,7 +64,7 @@ namespace lab1
         }
     }
 
-    public class Group : IIdentifiable
+    class Group : IIdentifiable
     {
         public string Name { get; set; }
         public List<Student> Students { get; set; }
@@ -92,7 +92,7 @@ namespace lab1
         }
     }
 
-    public class Student : IIdentifiable, IGradeable, IReportable
+    class Student : IIdentifiable, IGradeable, IReportable
     {
         public string Name { get; set; }
         public double Score { get; set; }
@@ -165,6 +165,7 @@ namespace lab1
     
     internal class Program
     {
+        delegate void StudentOperation(Student student);
         static List<University> universities = new List<University>();
 
         // Методы для работы с делегатом Action<Student>
